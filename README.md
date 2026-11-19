@@ -1,6 +1,8 @@
 # Construction Cost Escalation Index
 
-A lag-based regression model using public Statistics Canada data, with out-of-sample validation.
+A statistical approach to cost escalation monitoring and contract risk assessment in multi-year construction projects.
+
+Built with a lag-based regression model on public Statistics Canada data, with out-of-sample validation.
 
 **Author:** Emely Lephilibert
 **Language:** Python
@@ -60,10 +62,16 @@ The CMI is calibrated to the CPI, not to construction costs, so it should not be
 - `data/raw/statcan_series_2026-11-17.csv.gz`: the original Statistics Canada rows of the five series used (3,457 rows).
 - `data/processed/master_dataset_2026-11-17.parquet`: the monthly master dataset, January 2010 to October 2026 (202 months × 12 columns).
 
+These two files keep the exact values used in this analysis and can be opened directly to check the results. They are outputs of the notebook: to rebuild them, the notebook reads the three full Statistics Canada tables, which are not included in the repository because of their size.
+
 ## How to reproduce
 
+**To check the results without running anything,** open the two files in `data/` or read the notebook, which is saved with all its outputs.
+
+**To rerun the analysis from the start:**
+
 1. Install the dependencies: `pip install -r requirements.txt` (the notebook was run with Python 3.13).
-2. Download the three full tables as CSV zip files from Statistics Canada and place them in `data/raw/`:
+2. Download the three full tables as CSV zip files from Statistics Canada and place them in `data/raw/`. They are needed only to rerun the notebook:
    - Monthly average retail prices for selected products: table 18-10-0001-01 (`18100001-eng.zip`)
    - Industrial product price index, by product: table 18-10-0266-01 (`18100266-eng.zip`)
    - Consumer Price Index, monthly, not seasonally adjusted: table 18-10-0004-01 (`18100004-eng.zip`)
