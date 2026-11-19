@@ -4,8 +4,8 @@ A statistical approach to cost escalation monitoring and contract risk assessmen
 
 Built with a lag-based regression model on public Statistics Canada data, with out-of-sample validation.
 
-**Author:** Emely Lephilibert
-**Language:** Python
+**Author:** Emely Lephilibert  
+**Language:** Python  
 **Data:** Statistics Canada, tables 18-10-0001-01, 18-10-0266-01 and 18-10-0004-01, snapshot of 2026-11-17
 
 ## Result
