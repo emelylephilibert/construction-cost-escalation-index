@@ -1,0 +1,10 @@
+# Python and notebook artifacts
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Full Statistics Canada tables: too large for the repository, download them as described in the README
+data/raw/*.zip
+
+# System files
+.DS_Store
