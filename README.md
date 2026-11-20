@@ -10,7 +10,7 @@ Built with a lag-based regression model on public Statistics Canada data, with o
 
 ## Result
 
-Multi-year construction projects are priced at one point in time, while fuel and material costs keep moving during execution. This project builds an escalation index from three public Statistics Canada tables, tests it on months it was not fitted on, and adapts it to the cost structure of a project.
+Multi-year construction projects are priced at one point in time, while fuel and material costs keep moving during execution. This project builds a market-monitoring index from three public Statistics Canada tables, calibrated against the CPI of Montréal, tests it on months it was not fitted on, and adapts it to the cost structure of a project.
 
 | Finding | Evidence |
 |---------|----------|
@@ -19,7 +19,12 @@ Multi-year construction projects are priced at one point in time, while fuel and
 | The model holds on data it has not seen | April to October 2026: RMSE 0.218 against 0.443 for a naive benchmark, 7 of 7 months inside the 95% interval |
 | The index triggers adjustments only in extraordinary periods | 17 months above the review band, all in the post-COVID surge (Nov 2021 to Mar 2023); no trigger in the 2020 shock |
 | 2026 shows rising pressure, close to the contract limit | No trigger in the rolling review; a contract with a February 2026 base date reaches +10.16% by November, just over the +10% first-year limit |
-| A project layer adapts the index to a project's cost structure | M16 combines fixed, fuel, materials and CMI components with project-specific weights; it records the same number of historical triggers as the CMI, starting one month earlier |
+| A project layer adapts the index to a project's cost structure | M16 combines fixed, fuel, materials and CMI components with illustrative project weights; it records the same number of historical triggers as the CMI, starting one month earlier |
+
+## Documentation
+
+- [Technical report](docs/Construction_Cost_Escalation_Index_Technical_Report.pdf) (59 pages): the full analysis written as a report, without code, with appendices on data processing, full model results and reproducibility.
+- [Project deck](docs/Construction_Cost_Escalation_Index_Deck.pdf) (12 slides): the problem, the index, the evidence and the monitoring tool, for a cost control audience.
 
 ## The indexes
 
@@ -45,7 +50,7 @@ where the CFI is the average of normalized diesel and gasoline prices in Montré
 
 ## Limitations
 
-The CMI is calibrated to the CPI, not to construction costs, so it should not be read as a cost structure. The M16 weights are illustrative and the index is only as accurate as the cost breakdown behind it. Some periods are short (10 months for the COVID shock, 7 for the out-of-sample test), consecutive year-over-year changes overlap, and recent Statistics Canada values can be revised. The contract values are hypothetical and the dollar simulation is simplified. The full list is in section 7.3 of the notebook.
+The CMI is calibrated to the CPI, not to construction costs, so it should not be read as a cost structure. The M16 weights are illustrative and the index is only as accurate as the cost breakdown behind it. Some periods are short (10 months for the COVID shock, 7 for the out-of-sample test), consecutive year-over-year changes overlap, and recent Statistics Canada values can be revised. The contract values are hypothetical and the dollar simulation is simplified. The full list is in section 7.3 of the notebook and section 10.3 of the technical report.
 
 ## Repository
 
@@ -53,6 +58,9 @@ The CMI is calibrated to the CPI, not to construction costs, so it should not be
     ├── 01_construction_cost_escalation_index.ipynb
     ├── README.md
     ├── requirements.txt
+    ├── docs/
+    │   ├── Construction_Cost_Escalation_Index_Technical_Report.pdf
+    │   └── Construction_Cost_Escalation_Index_Deck.pdf
     └── data/
         ├── raw/
         │   └── statcan_series_2026-11-17.csv.gz
