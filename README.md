@@ -25,6 +25,7 @@ Multi-year construction projects are priced at one point in time, while fuel and
 
 - [Technical report](docs/Construction_Cost_Escalation_Index_Technical_Report.pdf) (59 pages): the full analysis written as a report, without code, with appendices on data processing, full model results and reproducibility.
 - [Project deck](docs/Construction_Cost_Escalation_Index_Deck.pdf) (12 slides): the problem, the index, the evidence and the monitoring tool, for a cost control audience.
+- [Excel tracker](docs/Construction_Cost_Escalation_Tracker.xlsx): monthly monitoring of the hypothetical contract with live formulas. Only the Contract and Inputs sheets are edited; the dashboard, monthly review, index and history sheets update automatically.
 
 ## The indexes
 
@@ -60,7 +61,8 @@ The CMI is calibrated to the CPI, not to construction costs, so it should not be
     ├── requirements.txt
     ├── docs/
     │   ├── Construction_Cost_Escalation_Index_Technical_Report.pdf
-    │   └── Construction_Cost_Escalation_Index_Deck.pdf
+    │   ├── Construction_Cost_Escalation_Index_Deck.pdf
+    │   └── Construction_Cost_Escalation_Tracker.xlsx
     └── data/
         ├── raw/
         │   └── statcan_series_2026-11-17.csv.gz
